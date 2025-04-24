@@ -15,7 +15,7 @@ resource "aws_iam_role" "ecs_execution_role" {
 
 resource "aws_iam_role_policy" "ecs_execution_logs" {
   name = "ecs-execution-logs-policy"
-  role = aws_iam_role.ecs_task_execution_role.id
+  role = aws_iam_role.ecs_execution_role.id # Corrected reference
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -26,12 +26,11 @@ resource "aws_iam_role_policy" "ecs_execution_logs" {
           "logs:CreateLogStream",
           "logs:PutLogEvents"
         ],
-        Resource = "*"
+        Resource = "arn:aws:logs:*:*:log-group:/ecs/strapi-app-karthik:*" # More specific resource
       }
     ]
   })
 }
-
 
 resource "aws_iam_role_policy_attachment" "ecs_execution" {
   role       = aws_iam_role.ecs_execution_role.name

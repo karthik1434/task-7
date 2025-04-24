@@ -13,8 +13,8 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   threshold           = 80
   alarm_description   = "Alarm when CPU usage exceeds 80%"
   dimensions = {
-    ClusterName = aws_ecs_cluster.strapi.name
-    ServiceName = aws_ecs_service.strapi.name
+    ClusterName = aws_ecs_cluster.main.name
+    ServiceName = aws_ecs_service.main.name
   }
   alarm_actions = [] # Add SNS topic ARN here if needed
 }
