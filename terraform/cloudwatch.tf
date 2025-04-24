@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_log_group" "strapi" {
-  name              = "/ecs/strapi-karthik"
+  name              = "/ecs/strapi-app-karthik"
   retention_in_days = 7
 }
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {

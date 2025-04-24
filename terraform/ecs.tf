@@ -21,7 +21,7 @@ resource "aws_ecs_task_definition" "app" {
     logConfiguration = {
       logDriver = "awslogs",
       options = {
-        awslogs-group         = "/ecs/strapi-karthik",
+        awslogs-group         = "/ecs/strapi-app-karthik",
         awslogs-region        = "us-east-1",
         awslogs-stream-prefix = "ecs"
       }
